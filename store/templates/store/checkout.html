@@ -1,0 +1,33 @@
+{% extends 'store/base.html' %}
+
+{% block title %}Checkout - My Store{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="text-center my-4">Checkout</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product_id, quantity in cart_items.items %}
+                {% with product=product_id|add:0|get_product %}
+                <tr>
+                    <td>{{ product.name }}</td>
+                    <td>{{ quantity }}</td>
+                    <td>${{ product.price }}</td>
+                </tr>
+                {% endwith %}
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h4>Total: ${{ total_price }}</h4>
+    <a href="#" class="btn btn-success">Place Order</a>
+</div>
+{% endblock %}

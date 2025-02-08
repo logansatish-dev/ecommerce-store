@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+</head>
+<body>
+    <h1>Welcome to our E-commerce Store</h1>
+</body>
+</html>
+
+{% extends 'store/base.html' %}
+
+{% block title %}Home - My Store{% endblock %}
+
+{% block content %}
+<div class="container text-center mt-5">
+    <!-- Hero Section -->
+    <div class="jumbotron bg-light p-5 rounded shadow-sm">
+        <h1 class="display-4">Welcome to My Store</h1>
+        <p class="lead">Discover high-quality products at unbeatable prices.</p>
+        <a href="{% url 'product_list' %}" class="btn btn-primary btn-lg mt-3">Shop Now</a>
+    </div>
+</div>
+{% endblock %}
